@@ -1,47 +1,54 @@
-# bean-archive-copilot
+coffee-archive-copilot
 
-AI-assisted field notebook and archive for coffee experiences.
+AI-assisted archive and interpretation system for coffee experiences.
 
-`bean-archive-copilot` helps capture coffee experiences as they happen — bean cards, cup photos, café observations, tasting notes, and travel memories — and organize them into a searchable archive.
+bean-archive-copilot helps capture coffee experiences as they happen — bean cards, cup photos, café observations, tasting notes, and travel memories — and organize them into a searchable archive built for interpretation over time.
 
-The project combines structured coffee logging with AI-assisted workflows to:
+The project is based on a simple idea:
 
-- extract metadata from bean cards
-- organize entries into sensory and experience themes
-- surface memorable cups and turning points
-- identify related and contrasting coffees
-- generate creative starting points for captions, room notes, and post ideas
+Archive is infrastructure. Interpretation is the product.
+
+It combines structured coffee logging with AI-assisted workflows to:
+
+* extract metadata from bean cards
+* preserve context around cups, places, and memories
+* organize entries into themes and archive lenses
+* identify relationships, turning points, and recurring preferences
+* generate creative starting points for captions, story ideas, and future collections
+* support visual interpretation of archive stories
 
 The goal is not to replace personal interpretation, but to preserve and enrich it.
 
-> AI suggests. The user decides.
+AI suggests. The user decides.
 
-## Why This Exists
+Tech Stack
 
-Most coffee apps focus on tracking beans.
+* Next.js
+* TypeScript
+* Tailwind CSS
+* PostgreSQL
+* Prisma
+* Supabase Storage
+* OpenAI API
 
-This project focuses on capturing coffee experiences.
+MVP Scope
 
-A memorable cup can be tied to a place, a room, a city, a shift in taste, or a specific moment. `bean-archive-copilot` is designed as a field notebook first and an archive second.
+* responsive web app
+* archive CRUD
+* image upload
+* bean-card metadata extraction
+* search / filter / sort
+* theme tagging
+* archive flags
+* mobile-friendly capture
+* creative post ideation
 
-## Tech Stack
+Out of Scope for MVP
 
-- Next.js
-- TypeScript
-- Tailwind CSS
-- PostgreSQL
-- Prisma
-- Supabase Storage
-- OpenAI API
-
-## MVP Scope
-
-- responsive web app
-- PWA-ready mobile experience
-- archive CRUD
-- image upload
-- bean-card metadata extraction
-- search / filter / sort
-- theme tagging
-- pairing suggestions
-- creative post ideation
+* native mobile app
+* multi-user support
+* Instagram publishing
+* advanced autonomous research
+* relationship graph UI
+* full design mode
+* automated visual generation pipeline
