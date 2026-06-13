@@ -1,0 +1,184 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Entry {
+  id          String @id @default(cuid())
+  entryNumber Int?   @unique
+
+  beanName          String?
+  drinkLabel        String?
+  title             String?
+  cafeName          String?
+  roasterName       String?
+  dateTried         DateTime?
+  city              String?
+  countryWhereDrank String?
+
+  originCountry   String?
+  originRegion    String?
+  producer        String?
+  farm            String?
+  varietal        String?
+  process         String?
+  tastingNotesRaw String?
+  servedStyle     ServedStyle?
+
+  personalTastingNote String?
+  whatLingered        String?
+  roomNote            String?
+  selectionSource     SelectionSource?
+  selectedBy          String?
+  curationNote        String?
+  memoryNote          String?
+
+  memoryTrip    Boolean @default(false)
+  turningPoint  Boolean @default(false)
+  quietFavorite Boolean @default(false)
+  wouldRevisit  Boolean @default(false)
+
+  postStatus     PostStatus     @default(NOT_PLANNED)
+  photoReadiness PhotoReadiness @default(NO_PHOTOS)
+  sourceType     SourceType     @default(CURRENT_CUP)
+  confidence     Confidence     @default(MEDIUM)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  media         Media[]
+  entryThemes   EntryTheme[]
+  contentDrafts ContentDraft[]
+}
+
+model Media {
+  id            String    @id @default(cuid())
+  entryId       String
+  type          MediaType
+  storagePath   String
+  extractedText String?
+  aiDescription String?
+  createdAt     DateTime  @default(now())
+
+  entry Entry @relation(fields: [entryId], references: [id], onDelete: Cascade)
+}
+
+model Theme {
+  id          String        @id @default(cuid())
+  name        String        @unique
+  category    ThemeCategory
+  description String?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  entryThemes EntryTheme[]
+}
+
+model EntryTheme {
+  id         String      @id @default(cuid())
+  entryId    String
+  themeId    String
+  source     ThemeSource @default(MANUAL)
+  confidence Float?
+
+  entry Entry @relation(fields: [entryId], references: [id], onDelete: Cascade)
+  theme Theme @relation(fields: [themeId], references: [id], onDelete: Cascade)
+
+  @@unique([entryId, themeId])
+}
+
+model ContentDraft {
+  id          String      @id @default(cuid())
+  entryId     String
+  type        DraftType
+  content     String
+  modelSource DraftSource @default(MANUAL)
+  createdAt   DateTime    @default(now())
+
+  entry Entry @relation(fields: [entryId], references: [id], onDelete: Cascade)
+}
+
+enum ServedStyle {
+  HOT
+  ICED
+  BOTH
+}
+
+enum SelectionSource {
+  SELF_SELECTED
+  BARISTA_RECOMMENDED
+  CAFE_FEATURED
+  TASTING_FLIGHT
+  SUBSCRIPTION_SET
+  FRIEND_RECOMMENDED
+  UNKNOWN
+}
+
+enum PostStatus {
+  NOT_PLANNED
+  STORY_ONLY
+  MAIN_POST_CANDIDATE
+  DRAFTING
+  SCHEDULED
+  PUBLISHED
+}
+
+enum PhotoReadiness {
+  NO_PHOTOS
+  CARD_ONLY
+  CUP_PHOTO_AVAILABLE
+  ROOM_PHOTO_AVAILABLE
+  FULL_CAROUSEL_READY
+}
+
+enum SourceType {
+  CURRENT_CUP
+  OLD_BEAN_CARD
+  MEMORY_TRIP
+  MENU_ENTRY
+  STORY_NOTE
+}
+
+enum Confidence {
+  HIGH
+  MEDIUM
+  LOW
+}
+
+enum MediaType {
+  BEAN_CARD
+  CUP
+  ROOM
+  POST_DRAFT
+  STORY_DRAFT
+  OTHER
+}
+
+enum ThemeCategory {
+  SENSORY
+  EXPERIENCE
+  PERSONAL_ARCHIVE
+  CUSTOM
+}
+
+enum ThemeSource {
+  MANUAL
+  AI
+}
+
+enum DraftType {
+  CAPTION
+  HAIKU
+  ROOM_NOTE
+  TEASER
+  STORYBOARD
+  WHAT_LINGERED
+}
+
+enum DraftSource {
+  MANUAL
+  AI
+}
