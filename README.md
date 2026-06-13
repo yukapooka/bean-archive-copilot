@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+coffee-archive-copilot
 
-## Getting Started
+AI-assisted archive and interpretation system for coffee experiences.
 
-First, run the development server:
+bean-archive-copilot helps capture coffee experiences as they happen — bean cards, cup photos, café observations, tasting notes, and travel memories — and organize them into a searchable archive built for interpretation over time.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The project is based on a simple idea:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Archive is infrastructure. Interpretation is the product.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+It combines structured coffee logging with AI-assisted workflows to:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+* extract metadata from bean cards
+* preserve context around cups, places, and memories
+* organize entries into themes and archive lenses
+* identify relationships, turning points, and recurring preferences
+* generate creative starting points for captions, story ideas, and future collections
+* support visual interpretation of archive stories
 
-## Learn More
+The goal is not to replace personal interpretation, but to preserve and enrich it.
 
-To learn more about Next.js, take a look at the following resources:
+AI suggests. The user decides.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+* Next.js
+* TypeScript
+* Tailwind CSS
+* PostgreSQL
+* Prisma
+* Supabase Storage
+* OpenAI API
 
-## Deploy on Vercel
+MVP Scope
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* responsive web app
+* archive CRUD
+* image upload
+* bean-card metadata extraction
+* search / filter / sort
+* theme tagging
+* archive flags
+* mobile-friendly capture
+* creative post ideation
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Out of Scope for MVP
+
+* native mobile app
+* multi-user support
+* Instagram publishing
+* advanced autonomous research
+* relationship graph UI
+* full design mode
+* automated visual generation pipeline
