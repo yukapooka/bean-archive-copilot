@@ -22,7 +22,6 @@ async function createEntry(formData: FormData) {
       varietal: formData.get("varietal") as string || null,
       originRegion: formData.get("originRegion") as string || null,
       originCountry: formData.get("originCountry") as string || null,
-      drinkLabel: formData.get("drinkLabel") as string || null,
       cafeName: formData.get("cafeName") as string || null,
       city: formData.get("city") as string || null,
       tastingNotesRaw: (formData.get("tastingNotesRaw") as string) || null,
@@ -49,7 +48,6 @@ export default function NewEntryPage() {
         <input name="originRegion" placeholder="Region" className="w-full rounded border p-3" />
         <input name="originCountry" placeholder="Country" className="w-full rounded border p-3" />
         <textarea name="tastingNotesRaw" placeholder="Roaster notes" className="w-full rounded border p-3"/>
-        <input name="drinkLabel" placeholder="Drink label e.g. filter coffee" className="w-full rounded border p-3" />
         <input name="cafeName" placeholder="Cafe name" className="w-full rounded border p-3" />
         <input name="city" placeholder="City" className="w-full rounded border p-3" />
         <textarea name="personalTastingNote" placeholder="Personal tasting note" className="w-full rounded border p-3" />
